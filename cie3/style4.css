@@ -1,0 +1,91 @@
+.section5 {
+margin-bottom: 40px;
+font-family: Arial;
+min-height: 100dvh;
+}
+
+.section5 .container {
+background-color: black;
+color: white;
+}
+
+.section5 .headings {
+padding: 10px 20px 30px 20px;
+}
+
+.section5 .headings h1 {
+margin-bottom: 10px;
+}
+
+.section5 .headings h2 {
+font-weight: normal;
+}
+
+.section5 .container2 {
+background-color: white;
+border-left: 5px solid black;
+border-bottom: 2px solid black;
+color: black;
+}
+
+.section5 .container2 h3 {
+color: black;
+}
+
+.section5 .inner-container {
+display: flex;
+flex-direction: column-reverse;
+}
+
+.section5 .inner-container .column1 {
+width: 100%;
+padding: 10px;
+}
+.section5 .inner-container .column2 {
+width: 100%;
+padding: 10px;
+display: flex;
+flex-direction: row;
+gap: 10px;
+}
+
+.section5 .column2 a {
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 50px;
+background-color: black;
+color: white;
+text-align: center;
+font-size: 14px;
+}
+
+.section5 .column2 a.active {
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 50px;
+background-color: white;
+color: black;
+border: 2px solid black;
+font-weight: bold;
+text-align: center;
+font-size: 14px;
+}
+
+.section5 .column1 h3, .column1 p {
+margin-bottom: 20px;
+}
+
+.section5 .column1 a {
+text-decoration: none;
+color: black;
+}
+
+.section5 .sidebar {
+background-color: rgba(0,0,0, 0.1);
+padding: 20px 10px;
+color: black;
+}
+
+.section5 .sidebar h4 {
+margin-bottom: 20px;
+}
