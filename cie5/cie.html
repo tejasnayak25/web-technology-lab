@@ -1,0 +1,454 @@
+<!-- College news page converted from original newspaper template -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Chronicle — College News</title>
+  <style>
+    :root {
+    --bg: #fbf8f2;
+    --card: #fff;
+    --accent: #7b1e3a;
+    --accent-2: #d4a017;
+    --muted: #5a5a5a;
+    --border: #e6e1d5;
+    }
+
+    body {
+    font-family: 'Georgia', Times, serif;
+    line-height: 1.7;
+    color: #222;
+    background: var(--bg);
+    margin: 0;
+    min-height: 100vh;
+    padding: 0;
+    }
+
+    header {
+    background: var(--accent);
+    color: #fff;
+    padding: 18px 20px;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 2px 8px rgba(42,82,152,0.08);
+    }
+
+    .site-header {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 120px 1fr auto;
+    gap: 12px;
+    align-items: center;
+    }
+
+    .site-logo {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    }
+
+    .site-logo img {
+    width: 100%;
+    max-width: 110px;
+    border-radius: 6px;
+    background: #fff;
+    padding: 6px;
+    }
+
+    .site-title {
+    text-align: left;
+    }
+
+    .site-title h1 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-family: 'Georgia', Times, serif;
+    font-weight: 700;
+    }
+
+    .site-title p {
+    margin: 6px 0 0;
+    color: rgba(255,255,255,0.95);
+    font-size: 0.92rem;
+    }
+
+    .header-meta {
+    justify-self: end;
+    text-align: right;
+    color: rgba(255,255,255,0.95);
+    font-size: 0.95rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    }
+
+    .header-meta .date {
+    font-weight: 600;
+    }
+
+    .header-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    }
+
+    .header-btn {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.12);
+    font-size: 0.9rem;
+    }
+
+    .header-btn:hover {
+    background: rgba(255,255,255,0.22);
+    }
+
+    nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(42,82,152,0.06);
+    border-bottom: 1px solid var(--border);
+    }
+
+    nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 16px;
+    }
+
+    nav a {
+    display: inline-block;
+    padding: 10px 18px;
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 1em;
+    transition: background 0.2s, color 0.2s;
+    }
+
+    nav a:hover {
+    background: var(--accent);
+    color: #fff;
+    }
+
+    .container {
+    max-width: 1136px;
+    margin: 18px auto 0 auto;
+    padding: 0 18px;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 28px;
+    align-items: start;
+    }
+
+    .content {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    }
+
+    .hero {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background: linear-gradient(180deg, var(--card), #fff);
+    border-left: 6px solid var(--accent);
+    padding: 18px;
+    border-radius: 8px;
+    }
+
+    .hero figure {
+    flex: 1;
+    margin: 0;
+    }
+
+    .hero figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    }
+
+    .hero .summary {
+    flex: 1;
+    padding-right: 6px;
+    }
+
+    .hero h2 {
+    margin-top: 0;
+    font-size: 1.45em;
+    color: var(--accent);
+    margin-bottom: 6px;
+    }
+
+    .hero .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+    }
+
+    .articles-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    }
+
+    article {
+    background: var(--card);
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid var(--border);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(123,30,58,0.06);
+    }
+
+    article h2 {
+    color: var(--accent);
+    font-size: 1.18em;
+    margin-bottom: 6px;
+    }
+
+    article .meta {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 8px;
+    }
+
+    article p {
+    margin: 0;
+    color: #222;
+    }
+
+    .sidebar {
+    background: linear-gradient(180deg, #fff, #fbf8f2);
+    padding: 18px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    box-shadow: 0 6px 18px rgba(90,90,90,0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    }
+
+    .sidebar h3 {
+    color: var(--accent);
+    margin: 0 0 6px 0;
+    font-size: 1.05rem;
+    letter-spacing: 0.2px;
+    }
+
+    .sidebar .events {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    }
+
+    .sidebar .events li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: #fff;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    }
+
+    .sidebar .events li strong {
+    display: inline-block;
+    min-width: 72px;
+    background: var(--accent-2);
+    color: #fff;
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-align: center;
+    }
+
+    .sidebar .events li span {
+    color: #222;
+    font-size: 0.95rem;
+    }
+
+    .sidebar .events li:hover {
+    background: #fffef8;
+    transform: translateY(-2px);
+    transition: all 0.12s ease;
+    }
+
+    .sidebar ul:not(.events) {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    }
+
+    .sidebar ul:not(.events) li {
+    margin-bottom: 8px;
+    }
+
+    .sidebar a {
+    color: var(--accent);
+    text-decoration: none;
+    }
+
+    .sidebar a.button,
+    .sidebar a.quick-btn {
+    display: inline-block;
+    padding: 8px 10px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    }
+
+    .sidebar a.quick-btn.secondary {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    }
+
+    .sidebar .contact-card {
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    font-size: 0.95rem;
+    }
+
+    table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    }
+
+    th,
+    td {
+    border: 1px solid var(--border);
+    padding: 10px;
+    text-align: left;
+    }
+
+    th {
+    background: #f0f4fa;
+    color: var(--accent);
+    }
+
+    footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 1rem;
+    margin-top: 32px;
+    padding: 14px 0;
+    }
+  </style>
+</head>
+<body>
+    <h2 style="padding: 0 20px;">Tejas Nayak - 4MW23CS173</h2>
+  <header>
+    <div class="site-header">
+      <div class="site-logo">
+        <img src="https://th.bing.com/th/id/R.15dfe680c059a7420a2434fce0293e16?rik=tkyTbAk%2bvPruBA&riu=http%3a%2f%2fsode-edu.in%2fwp-content%2fthemes%2fsodeCollege2015%2fimages%2fsode-logo-2.png&ehk=pqXOSQKbLZuaayQ9eZ%2b5PJTkZHnbK%2fapI%2bOKSUjLGro%3d&risl=&pid=ImgRaw&r=0" alt="College logo" />
+      </div>
+      <div class="site-title">
+        <h1>Shri Madhwa Vadiraja Institute of Technology and Management</h1>
+        <p>(An Autonomous College) — Bantakal</p>
+      </div>
+      <div class="header-meta">
+        <div class="date">Oct 8, 2025</div>
+        <div style="font-size:0.85rem;margin-top:6px;">Office of Communications</div>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Academics</a></li>
+      <li><a href="#">Clubs</a></li>
+      <li><a href="#">Sports</a></li>
+      <li><a href="#">Events</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div class="content">
+      <section class="hero">
+        <figure>
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="TechnoFest stage and crowd" />
+        </figure>
+        <div class="summary">
+          <h2>SMVITM TechnoFest 2025: Innovation on Campus</h2>
+          <div class="meta">Oct 20–22, 2025 • Office of Student Affairs</div>
+          <p>SMVITM's annual TechnoFest returns with hackathons, robotics contests, project showcases, workshops, and guest talks. Students from engineering and allied disciplines will present technology projects judged by industry experts.</p>
+          <p><em>Highlights: 24-hour hackathon, Robotics Challenge, IoT workshops, and industry networking sessions. Registrations open through the Student Portal.</em></p>
+        </div>
+      </section>
+
+      <section class="articles-grid">
+        <article>
+          <h2>Intercollegiate Sports Meet Concludes</h2>
+          <div class="meta">Oct 18, 2025 • Sports Office</div>
+          <p>The annual Intercollegiate Sports Meet concluded with outstanding performances across athletics and team sports. SMVITM secured top positions in men's and women's volleyball and track events.</p>
+          <table>
+            <tr><th>Event</th><th>Champion</th></tr>
+            <tr><td>Men's Volleyball</td><td>SMVITM A</td></tr>
+            <tr><td>Women's 4x100m</td><td>SMVITM Women</td></tr>
+            <tr><td>Overall Points</td><td>SMVITM</td></tr>
+          </table>
+        </article>
+
+        <article>
+          <h2>Guest Lecture: AI & Ethics by Dr. R. Narayan</h2>
+          <div class="meta">Oct 12, 2025 • Dept. of Computer Science</div>
+          <p>Dr. R. Narayan (AI Research Lab) delivered an engaging lecture on ethical considerations in AI systems and practical approaches to building fairer models. The session included a Q&amp;A and a short workshop demo.</p>
+          <p><em>Slides and recordings are available in the departmental repository.</em></p>
+        </article>
+      </section>
+    </div>
+
+    <aside class="sidebar">
+      <h3>Weather</h3>
+      <p>Today: Partly cloudy • High 28°C</p>
+
+      <h3>Upcoming Events</h3>
+      <ul class="events">
+        <li><strong>Oct 20–22</strong> — TechnoFest 2025 (Campus grounds)</li>
+        <li><strong>Oct 25</strong> — Placement Drive (CSE & ECE)</li>
+        <li><strong>Nov 05</strong> — Alumni Meet & Dinner</li>
+      </ul>
+
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">Exam Schedule</a></li>
+        <li><a href="#">Student Portal</a></li>
+        <li><a href="#">Placement Cell</a></li>
+      </ul>
+    </aside>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Shri Madhwa Vadiraja Institute of Technology and Management — Office of Communications</p>
+  </footer>
+</body>
+</html>
